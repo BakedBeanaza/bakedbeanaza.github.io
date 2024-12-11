@@ -76,7 +76,7 @@ input {
 footer {
    font-family: Silkscreen-Expanded;
    color:antiquewhite;
-   position: fixed;
+   position: absolute;
    left: 0;
    bottom: 0;
    width: 100%;
