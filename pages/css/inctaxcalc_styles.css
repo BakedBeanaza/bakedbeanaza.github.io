@@ -14,13 +14,18 @@
 }
 
 @font-face {
-   font-family: 'Silkscreen Bold';
+   font-family: 'Silkscreen-Bold';
    src: url('../font/slkscrb.ttf');
 }
 
 @font-face {
    font-family: 'Silkscreen-Expanded';
    src: url('../font/slkscre.ttf');
+}
+
+@font-face {
+   font-family: 'Silkscreen-Bold-Expanded';
+   src: url('../font/slkscreb.ttf');
 }
 
 * {
