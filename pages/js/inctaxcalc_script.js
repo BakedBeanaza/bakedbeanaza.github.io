@@ -32,5 +32,5 @@ document.getElementById("compute_inctax").addEventListener("click", () => {
 
    // Calculate and display total tax
    totaltax = Math.round(basictax + brackettax);
-   document.getElementById("result").innerHTML = "Total Tax is "+totaltax.toFixed(2)+" &#8369, user";
+   document.getElementById("result").innerHTML = "Total Tax is "+totaltax.toFixed(2)+" PHP, user";
 });
