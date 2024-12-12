@@ -3,13 +3,12 @@ document.getElementById("compute_inctax").addEventListener("click", () => {
 
    incometax = parseFloat(document.getElementById("inctax").value);
 
-   // Validate input
    if (isNaN(incometax)) {
       document.getElementById("result").innerHTML = 'Please enter a valid number.';
       return;
    }
 
-   // Tax calculation
+
    if (incometax < 250000) {
       basictax = 0;
       brackettax = 0;
@@ -30,7 +29,6 @@ document.getElementById("compute_inctax").addEventListener("click", () => {
       brackettax = 0.35 * (incometax - 8000000);
    }
 
-   // Calculate and display total tax
    totaltax = Math.round(basictax + brackettax);
    document.getElementById("result").innerHTML = "Total Tax is "+totaltax.toFixed(2)+" PHP, user";
 });

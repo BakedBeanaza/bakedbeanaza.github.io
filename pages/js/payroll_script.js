@@ -31,37 +31,36 @@ function addEmployees() {
 }
 
 document.getElementById("employeeForm").addEventListener("submit", function (event) {
-   event.preventDefault(); // Prevent default input values being submitted
+   event.preventDefault();
 
    const confirmationDialog = document.getElementById("dlgConfirmSubmit");
-   confirmationDialog.showModal(); // presents confirmation dialog
+   confirmationDialog.showModal();
 
-   // Event handler for when the confirmation dialog is closed
    confirmationDialog.addEventListener("close", () => { 
       if (confirmationDialog.returnValue === "confirm") {
-      const name = document.getElementById("name").value.trim(); // initializes variables based on user input
-      const daysworkedInput = document.getElementById("daysworked").value.trim(); //value.trim() removes any whitespace before and after user input
+      const name = document.getElementById("name").value.trim();
+      const daysworkedInput = document.getElementById("daysworked").value.trim();input
       const dailyrateInput = document.getElementById("dailyrate").value.trim();
       const deductionInput = document.getElementById("deduction").value.trim();
 
-      if (!name || !daysworkedInput || !dailyrateInput || !deductionInput) { // alert if any of the fields are empty.
+      if (!name || !daysworkedInput || !dailyrateInput || !deductionInput) {
          alert("All fields are required.");
          return;
       }
 
-      const daysworked = parseFloat(daysworkedInput); // converts the string input to a floating point number
+      const daysworked = parseFloat(daysworkedInput);
       const dailyrate = parseFloat(dailyrateInput);
       const deduction = parseFloat(deductionInput);
 
-      if (isNaN(daysworked) || isNaN(dailyrate) || isNaN(deduction)) { // alert if any of the number inputs are non numeric values.
+      if (isNaN(daysworked) || isNaN(dailyrate) || isNaN(deduction)) {
          alert("Please enter valid numeric values for Days Worked, Daily Rate, and Deduction.");
          return;
       }
 
-      const grosspay = (daysworked * dailyrate).toFixed(2); // calculations for grosspay and netpay
+      const grosspay = (daysworked * dailyrate).toFixed(2);
       const netpay = (grosspay - deduction).toFixed(2);
 
-      const emp = { // because the initialized variables are already the same name as the values of the object, only enter as is.
+      const emp = {
          name,
          daysworked,
          dailyrate,
@@ -70,27 +69,25 @@ document.getElementById("employeeForm").addEventListener("submit", function (eve
          netpay,
       };
 
-      payroll.push(emp); // adds new object to the end of the array.
-      showEmployees(); // refreshes table
-      this.reset(); // input fields and such are empty again
+      payroll.push(emp);
+      showEmployees();
+      this.reset();
       }
    });
 });
 
-   document.getElementById("btnedit").addEventListener("click", () => { // event handler when edit button is clicked.
-   const empNumberInput = document.getElementById("delemployee").value.trim(); // retrieves employee number to edit from the input
+   document.getElementById("btnedit").addEventListener("click", () => {
+   const empNumberInput = document.getElementById("delemployee").value.trim();
 
-   const empNumber = parseInt(empNumberInput, 10); // converts string input to a base 10 integer
-   if (isNaN(empNumber) || empNumber < 1 || empNumber > payroll.length) { // alerts if the input is invalid
+   const empNumber = parseInt(empNumberInput, 10);
+   if (isNaN(empNumber) || empNumber < 1 || empNumber > payroll.length) {
       alert("Invalid Employee Number. Please enter a number between 1 and " + payroll.length);
       return false;
    }
 
-   // Fill the form with the existing employee data for editing
-   const empIndex = empNumber - 1; // converts value of employee to be appropriate with array index
-   const employee = payroll[empIndex]; // assigns that value to employee, meaning we can now directly access the object with the employee variable
+   const empIndex = empNumber - 1;
+   const employee = payroll[empIndex];
 
-   // Show the confirmation dialog for editing
    const confirmationDialog = document.getElementById("dlgConfirmEdit");
    document.getElementById("edtmsg").textContent = `Are you sure you want to edit the details of Employee No. ${empNumber}?`;
    confirmationDialog.showModal();
@@ -107,16 +104,16 @@ document.getElementById("employeeForm").addEventListener("submit", function (eve
          return;
       }
 
-      // Update the employee details
-      employee.name = name; // syntax for updating value of property = objectName.property
+      
+      employee.name = name;
       employee.daysworked = parseFloat(daysworkedInput);
       employee.dailyrate = parseFloat(dailyrateInput);
       employee.deduction = parseFloat(deductionInput);
       employee.grosspay = (employee.daysworked * employee.dailyrate).toFixed(2);
       employee.netpay = (employee.grosspay - employee.deduction).toFixed(2);
 
-      showEmployees();  // Update the table with the modified data
-      document.getElementById("delemployee").value = ''; // Reset the employee number field
+      showEmployees();
+      document.getElementById("delemployee").value = '';
       }
    });
 });
@@ -149,18 +146,17 @@ function showEmployees() {
    }
 
    document.addEventListener("DOMContentLoaded", () => {
-   // initial setup when page loads 
+
    addEmployees(); 
    showEmployees();
 
-   // delete single employee button handler
+
    dlgConfirmCancel = document.getElementById("dlgConfirmCancel");
    document.getElementById("btndelete").addEventListener("click",()=>{
       let x = document.getElementById("delemployee").value *1 - 1;
       if ((x >= 0) && (x<payroll.length)) {
-      // confirm deletion of employee number
-      document.getElementById("dlgmsg").innerHTML = "Delete the employee " + (x + 1)+" " + payroll[x].name+"?";
-      dlgConfirmCancel.showModal();
+         document.getElementById("dlgmsg").innerHTML = "Delete the employee " + (x + 1)+" " + payroll[x].name+"?";
+         dlgConfirmCancel.showModal();
       }   
    });
    document.getElementById("btndeleteall").addEventListener("click",()=>{
@@ -171,25 +167,25 @@ function showEmployees() {
    dlgConfirmCancel.addEventListener("close", (e) => {
       var rst = e.target.returnValue;
       if (rst === "confirm") {
-      dlgmsg=document.getElementById("dlgmsg").innerHTML;
-      if (dlgmsg=="Delete all records?"){
-         dlgAreYouSure=document.getElementById("dlgAreYouSure");
-         document.getElementById("dlgmsg2").innerHTML ="Are you sure?";
-         dlgAreYouSure.showModal();
-      } else { 
-         var x = document.getElementById("delemployee").value * 1 - 1;
-         payroll.splice(x, 1);
-         showEmployees();
-         document.getElementById("delemployee").value = '';
-      }
+         dlgmsg=document.getElementById("dlgmsg").innerHTML;
+         if (dlgmsg=="Delete all records?"){
+            dlgAreYouSure=document.getElementById("dlgAreYouSure");
+            document.getElementById("dlgmsg2").innerHTML ="Are you sure?";
+            dlgAreYouSure.showModal();
+         } else { 
+            var x = document.getElementById("delemployee").value * 1 - 1;
+            payroll.splice(x, 1);
+            showEmployees();
+            document.getElementById("delemployee").value = '';
+         }
       }
    });
    dlgAreYouSure=document.getElementById("dlgAreYouSure");
    dlgAreYouSure.addEventListener("close", (e) => {
       var rst = e.target.returnValue;
       if (rst === "yes") {
-      payroll=[];
-      showEmployees();
+         payroll=[];
+         showEmployees();
       }
    });
 });

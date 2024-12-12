@@ -1,10 +1,10 @@
 @media (max-width: 768px) {
    .link {
-      width: 100%; /* Make the boxes take the full width on small screens */
+      width: 100%;
    }
 
    .link-container {
-      flex-direction: column; /* Stack boxes vertically */
+      flex-direction: column;
    }
 }
 
@@ -28,10 +28,12 @@
    src: url('../font/slkscreb.ttf');
 }
 
+/*Credits to Jason Kottke for the custom font, custom font from https://www.fontsquirrel.com/fonts/silkscreen*/
+
 .prevent-select {
-   -webkit-user-select: none; /* Safari */
-   -ms-user-select: none; /* IE 10 and IE 11 */
-   user-select: none; /* Standard syntax */
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
  }
 
 * {

@@ -18,6 +18,8 @@
    src: url('../font/slkscreb.ttf');
 }
 
+/*Credits to Jason Kottke for the custom font, custom font from https://www.fontsquirrel.com/fonts/silkscreen*/
+
 * {
    box-sizing: border-box;
    font-family: 'Silkscreen';
@@ -50,18 +52,18 @@ body {
    text-align: left;
    color: rgb(255, 255, 255);
    margin-bottom: 0.44rem;
-   width: 100%; /* Ensures it spans the width */
-   max-width: 800px; /* Matches the max-width of .container */
-   margin-left: auto; /* Centers with the .container */
+   width: 100%;
+   max-width: 800px;
+   margin-left: auto;
    margin-right: auto;
 }
 
 .greet2 {
    align-self: flex-start;
    text-align: left;
-   width: 100%; /* Ensures it spans the width */
-   max-width: 800px; /* Matches the max-width of .container */
-   margin-left: auto; /* Centers with the .container */
+   width: 100%;
+   max-width: 800px;
+   margin-left: auto;
    margin-right: auto;
    color: rgb(255, 255, 255);
    opacity: 0.5;
@@ -72,9 +74,9 @@ body {
    color: #fff;
    align-self: flex-start;
    text-align: left;
-   width: 100%; /* Ensures it spans the width */
-   max-width: 800px; /* Matches the max-width of .container */
-   margin-left: auto; /* Centers with the .container */
+   width: 100%;
+   max-width: 800px;
+   margin-left: auto;
    margin-right: auto;
    margin-bottom: 0.6rem;
    opacity: 0.3;
